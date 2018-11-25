@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
+import * as AOS from "aos";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   calling = "Hello Star";
   btnshow = false;
   ngOnInit() {
+    AOS.init();
     let step = 0;
     setInterval(() => {
       switch (step) {
