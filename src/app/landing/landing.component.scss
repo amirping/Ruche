@@ -19,7 +19,9 @@ $color1: $bg-color;
     min-height: 100%;
 
     .txtSide {
+
       color: #fff;
+
 
       h3 {
         color: #fff;
@@ -90,9 +92,15 @@ $color1: $bg-color;
 
     .talki {
       padding: 20px;
+      position: relative;
+
+      p {
+        z-index: 2;
+      }
 
       .topSec {
         width: 100%;
+        z-index: 2;
 
         .nbSec {
           color: rgba($color: #000, $alpha: 0.5);
@@ -117,5 +125,15 @@ $color1: $bg-color;
     background: rgba($color: $bg-color, $alpha: 1);
     font-family: 'Raleway',
       sans-serif;
+  }
+
+  #drawer-1,
+  #drawer-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
   }
 }
