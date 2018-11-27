@@ -5,12 +5,19 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LandingComponent } from "./landing/landing.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AuthUserComponent } from './auth-user/auth-user.component';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SettingsComponent } from './settings/settings.component';
+import { AuthUserComponent } from "./auth-user/auth-user.component";
+import { HomeComponent } from "./home/home.component";
+import { ProfileComponent } from "./profile/profile.component";
+import { SettingsComponent } from "./settings/settings.component";
 @NgModule({
-  declarations: [AppComponent, LandingComponent, AuthUserComponent, HomeComponent, ProfileComponent, SettingsComponent],
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    AuthUserComponent,
+    HomeComponent,
+    ProfileComponent,
+    SettingsComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

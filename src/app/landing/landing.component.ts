@@ -11,23 +11,24 @@ export class LandingComponent implements OnInit {
   private p5;
   constructor() {}
   ngOnInit(): void {
-    console.log("ffff");
-
-    this.createCanvas();
+    setTimeout(() => {
+      this.createCanvas();
+    }, 5000);
   }
   private createCanvas() {
     this.p5 = new p5(this.sketch);
   }
   private sketch(p: any, context: any) {
     let dots = [];
+    //let wi, he;
+    let wi = document.getElementById("drawer-1").clientWidth;
+    let he = document.getElementById("drawer-1").clientHeight;
     p.setup = () => {
-      const wi = document.getElementById("drawer-1").offsetWidth;
-      const he = document.getElementById("drawer-1").offsetHeight;
-      const l = p.createCanvas(he, wi);
+      const l = p.createCanvas(wi, he);
       l.parent("drawer-1");
       for (let i = 0; i < 15; i++) {
-        let x = Math.floor(Math.random() * Math.floor(350));
-        let y = Math.floor(Math.random() * Math.floor(350));
+        let x = Math.floor(Math.random() * Math.floor(wi / 2));
+        let y = Math.floor(Math.random() * Math.floor(he / 2));
         if (x < 50) {
           x += 50;
         }
@@ -35,7 +36,6 @@ export class LandingComponent implements OnInit {
           y += 50;
         }
         let pos = { x: x, y: y };
-        //this.randomPos(350, 350);
         // random x directon
         const chanceX = Math.floor(Math.random() * Math.floor(100));
         let drx = 1;
@@ -59,6 +59,7 @@ export class LandingComponent implements OnInit {
     };
 
     p.draw = () => {
+      p.clear();
       for (let j = 0; j < dots.length; j++) {
         p.ellipse(dots[j].x, dots[j].y, 5, 5);
         p.fill(0);
@@ -77,10 +78,13 @@ export class LandingComponent implements OnInit {
         if (dot.y < 2) {
           dot.dry = 1;
         }
-        if (dot.x > 398) {
+        let lmx = wi - 5;
+        let lmy = he - 5;
+
+        if (dot.x > lmx) {
           dot.drx = -1;
         }
-        if (dot.y > 398) {
+        if (dot.y > lmy) {
           dot.dry = -1;
         }
 
