@@ -9,6 +9,8 @@ import { AuthUserComponent } from "./auth-user/auth-user.component";
 import { HomeComponent } from "./home/home.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { MatProviderModule } from "./mat-provider/mat-provider.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,10 @@ import { SettingsComponent } from "./settings/settings.component";
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProviderModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
