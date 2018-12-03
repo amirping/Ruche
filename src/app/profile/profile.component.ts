@@ -9,7 +9,7 @@ import { ThrowStmt } from "@angular/compiler";
 export class ProfileComponent implements OnInit {
   showDeep = !false;
   gohide = !false;
-  selectedItem;
+  selectedIndex;
   user = {
     name: "",
     last_name: "",

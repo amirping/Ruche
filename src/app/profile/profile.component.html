@@ -185,19 +185,22 @@
                 </div>
 
                 <ng-template #prevTemplate>
-                  <mat-icon class="mat-18">left_arraow</mat-icon>
+                  <i class="material-icons"> arrow_left </i>
                   <!-- <img src="prev.png" /> -->
                 </ng-template>
 
                 <ng-template #nextTemplate>
                   <!-- <img src="next.png" /> -->
-                  <mat-icon class="mat-18">right_arraow</mat-icon>
+                  <i class="material-icons"> arrow_right </i>
                 </ng-template>
 
                 <ng-template let-item let-i="index" #itemTemplate>
-                  <div style="min-width: 200px">
-                    <b *ngIf="i === selectedIndex">{{ i }}.</b>
-                    <span *ngIf="i !== selectedIndex">{{ i }}.</span>
+                  <div>
+                    <img src="{{item}}" alt="" />
+                    <!--
+                      <b *ngIf="i === selectedIndex">{{ i }}.</b>
+                      <span *ngIf="i !== selectedIndex">{{ i }}.</span>
+                    -->
                   </div>
                 </ng-template>
               </mat-expansion-panel>
