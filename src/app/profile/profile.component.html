@@ -1,8 +1,13 @@
 <div class="main" fxLayout="column">
   <div class="heading" fxLayout="row" fxLayoutAlign="space-between center">
-    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center" fxLayoutGap="50px">
+    <div
+      fxLayout="row"
+      fxLayout.lt-md="column"
+      fxLayoutAlign="start center"
+      fxLayoutGap="50px"
+    >
       <div class="avatar">
-        <img src="https://api.adorable.io/avatars/285/amir@med.png" alt="">
+        <img src="https://api.adorable.io/avatars/285/amir@med.png" alt="" />
       </div>
       <div class="n-start">
         <h3>Med Amir Saadallah</h3>
@@ -14,8 +19,12 @@
     </button>
   </div>
   <div fxLayout="row">
-    <div class="profile-content" fxLayout="column">
-      <div class="about-section">
+    <div class="profile-content" fxFlex="0 0 100" fxLayout="column">
+      <div
+        class="about-section animated"
+        [class.dis-non]="showDeep && gohide"
+        [class.fadeOut]="showDeep"
+      >
         <div class="cord" fxLayout="row" fxLayoutAlign="end start">
           <div fxFlex="240px" fxShow.lt-md="false"></div>
           <ul fxFlex>
@@ -25,24 +34,177 @@
             <li>Birth date : 19 august 1994 (24 years old)</li>
           </ul>
         </div>
-        <h4>About : </h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ab autem voluptatem illum consectetur.
-          Laboriosam
-          facilis minima sed aliquam. Repellat est quos cumque quod. Quam dolores ex veritatis. Ea, rem! Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Minima eos earum, eaque corporis mollitia eligendi amet, vitae,
-          dolor quos ratione iure rerum quod quia ea culpa eveniet! Neque, architecto vitae.</p>
-        <h4>What i'm looking for ! : </h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ab autem voluptatem illum consectetur.
-          Laboriosam
-          facilis minima sed aliquam. Repellat est quos cumque quod. Quam dolores ex veritatis. Ea, rem! Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Minima eos earum, eaque corporis mollitia eligendi amet, vitae,
-          dolor quos ratione iure rerum quod quia ea culpa eveniet! Neque, architecto vitae.</p>
+        <h4>About :</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ab
+          autem voluptatem illum consectetur. Laboriosam facilis minima sed
+          aliquam. Repellat est quos cumque quod. Quam dolores ex veritatis. Ea,
+          rem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+          eos earum, eaque corporis mollitia eligendi amet, vitae, dolor quos
+          ratione iure rerum quod quia ea culpa eveniet! Neque, architecto
+          vitae.
+        </p>
+        <h4>What i'm looking for ! :</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ab
+          autem voluptatem illum consectetur. Laboriosam facilis minima sed
+          aliquam. Repellat est quos cumque quod. Quam dolores ex veritatis. Ea,
+          rem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima
+          eos earum, eaque corporis mollitia eligendi amet, vitae, dolor quos
+          ratione iure rerum quod quia ea culpa eveniet! Neque, architecto
+          vitae.
+        </p>
         <div class="cord" fxLayout="row" fxLayoutAlign="center center">
-          <button mat-stroked-button>GET DEEP</button>
+          <button mat-stroked-button (click)="getDeep()">GET DEEP</button>
+        </div>
+      </div>
+      <div
+        class="conten-section animated delay-1s"
+        fxLayout.md="row"
+        fxLayout.gt-md="row"
+        fxLayout.lt-md="column"
+        [class.fadeIn]="showDeep"
+        fxLayoutGap="20px"
+        [class.dis-non]="!showDeep"
+      >
+        <div
+          class="skills"
+          fxLayout="column"
+          fxFlex.md="0 0 30%"
+          fxFlex.gt-md="0 0 30%"
+        >
+          <h4>Skills</h4>
+          <ul>
+            <li
+              fxLayout="row"
+              fxLayoutAlign="space-between"
+              *ngFor="let item of user.skills"
+            >
+              <span>{{ item.name }}</span>
+              <div
+                class="c100 p{{item.value}} small {{ item.value<50 ? 'orange':'green'}}"
+              >
+                <span>{{ item.value }}%</span>
+                <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="expANDproj"
+          fxLayout="column"
+          fxFlex.md="0 0 70%"
+          fxFlex.gt-md="0 0 70%"
+        >
+          <div class="expANDeduc" fxFlex>
+            <h4>Experience & Education</h4>
+            <mat-tab-group mat-align-tabs="center">
+              <mat-tab class="pad-tab" label="Experience">
+                <mat-accordion
+                  displayMode="flat"
+                  [multi]="false"
+                  [hideToggle]="false"
+                >
+                  <mat-expansion-panel
+                    [hideToggle]="false"
+                    *ngFor="let item of user.experience"
+                  >
+                    <mat-expansion-panel-header>
+                      {{ item.job | uppercase }} @{{
+                        item.company_name | uppercase
+                      }}
+                      <span class="dur-small">
+                        <i class="material-icons"> calendar_today </i>
+                        <i class="d_u">{{ item.start_date | date }}</i>
+                        <i class="material-icons"> trending_flat </i>
+                        <i class="d_u">{{
+                          item.end_date ? (item.end_date | date) : "current"
+                        }}</i>
+                      </span>
+                    </mat-expansion-panel-header>
+                    -
+
+                    <p>{{ item.dscrp }}</p>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </mat-tab>
+              <mat-tab class="pad-tab" label="Education">
+                <div class="bar"></div>
+                <div class="timeline">
+                  <div class="entry" *ngFor="let item of user.education">
+                    <div class="wrapper-entry" fxLayout="column">
+                      <h1>{{ item.degree }}</h1>
+                      <h2>
+                        {{ item.start_date | date }} -
+                        {{ item.start_date | date }}
+                      </h2>
+                      <h2>{{ item.instut }}</h2>
+                      <p>{{ item.dscrp }}</p>
+                    </div>
+                  </div>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <div class="projects" fxFlex>
+            <h4>Projects</h4>
+            <mat-accordion
+              displayMode="flat"
+              [multi]="false"
+              [hideToggle]="false"
+            >
+              <mat-expansion-panel
+                [hideToggle]="false"
+                *ngFor="let item of user.projects"
+              >
+                <mat-expansion-panel-header>
+                  {{ item.title }}
+                </mat-expansion-panel-header>
+                Realase Date : <span>{{ item.date | date }}</span>
+                <p>{{ item.dscrp }}</p>
+                <a href="{{ item.link }}" mat-button>Visit the application</a>
+
+                <div fxLayout="row" fxLayoutAlign="center center">
+                  <!--
+                    <img *ngFor="let img of item.images" src="{{img}}" alt="" />
+                  -->
+                  <div
+                    ng2-carouselamos
+                    [width]="500"
+                    [items]="item.images"
+                    [$item]="itemTemplate"
+                    [$prev]="prevTemplate"
+                    [$next]="nextTemplate"
+                    (onSelectedItem)="
+                      selectedItem = $event.item; selectedIndex = $event.index
+                    "
+                  ></div>
+                </div>
+
+                <ng-template #prevTemplate>
+                  <mat-icon class="mat-18">left_arraow</mat-icon>
+                  <!-- <img src="prev.png" /> -->
+                </ng-template>
+
+                <ng-template #nextTemplate>
+                  <!-- <img src="next.png" /> -->
+                  <mat-icon class="mat-18">right_arraow</mat-icon>
+                </ng-template>
+
+                <ng-template let-item let-i="index" #itemTemplate>
+                  <div style="min-width: 200px">
+                    <b *ngIf="i === selectedIndex">{{ i }}.</b>
+                    <span *ngIf="i !== selectedIndex">{{ i }}.</span>
+                  </div>
+                </ng-template>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-
 </div>

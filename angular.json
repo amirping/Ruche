@@ -23,7 +23,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss", "node_modules/aos/dist/aos.css"],
+            "styles": ["src/styles.scss", "node_modules/aos/dist/aos.css", "node_modules/animate.css/animate.css", "src/assets/css/circle.css"],
             "scripts": ["node_modules/aos/dist/aos.js", "node_modules/p5/lib/p5.js"]
           },
           "configurations": {

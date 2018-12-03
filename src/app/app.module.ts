@@ -11,6 +11,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { SettingsComponent } from "./settings/settings.component";
 import { MatProviderModule } from "./mat-provider/mat-provider.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { Ng2CarouselamosModule } from "ng2-carouselamos";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     BrowserAnimationsModule,
     MatProviderModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2CarouselamosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
