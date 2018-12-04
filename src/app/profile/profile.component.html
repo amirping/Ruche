@@ -14,10 +14,14 @@
         <span>A computer Geek , that simpel</span>
       </div>
     </div>
-    <button mat-icon-button>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon aria-label="seetings">settings</mat-icon>
     </button>
   </div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Edit</button>
+    <button mat-menu-item>Desconnect</button>
+  </mat-menu>
   <div fxLayout="row">
     <div class="profile-content" fxFlex="0 0 100" fxLayout="column">
       <div
