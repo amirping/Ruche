@@ -7,8 +7,8 @@ import { ThrowStmt } from "@angular/compiler";
   styleUrls: ["./profile.component.scss"]
 })
 export class ProfileComponent implements OnInit {
-  showDeep = !false;
-  gohide = !false;
+  showDeep = false;
+  gohide = false;
   selectedIndex;
   user = {
     name: "",

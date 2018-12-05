@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
+import { Component, OnInit, HostListener } from "@angular/core";
 import { MatSidenav } from "@angular/material";
 
 @Component({
@@ -41,7 +41,48 @@ export class HomeComponent implements OnInit {
     "IA",
     "python"
   ];
-
+  offers: Array<any> = [
+    {
+      id: 1,
+      title: "Mobile Developer",
+      img: "https://placeimg.com/640/480/tech",
+      company: "ZteCHout",
+      date: "17/08/2018",
+      salairy: "900 - 3000 DT",
+      location: "Tunis,Tunisia",
+      requirments: ["Angular5", "NodeJS", "Express", "PHP", "Red Node"]
+    },
+    {
+      id: 1,
+      title: "Full Stack Developer",
+      img: "https://placeimg.com/640/640/tech",
+      company: "tech Land",
+      date: "17/08/2018",
+      salairy: "900 - 3000 DT",
+      location: "Tunis,Tunisia",
+      requirments: ["Angular5", "NodeJS", "Express", "PHP", "Red Node"]
+    },
+    {
+      id: 1,
+      title: "Data Anlayst",
+      img: "https://placeimg.com/500/500/tech",
+      company: "InsightData",
+      date: "17/08/2018",
+      salairy: "900 - 3000 DT",
+      location: "Tunis,Tunisia",
+      requirments: ["Angular5", "NodeJS", "Express", "PHP", "Red Node"]
+    },
+    {
+      id: 1,
+      title: "Mobile Developer",
+      img: "https://placeimg.com/900/900/tech",
+      company: "CLouderSky",
+      date: "17/08/2018",
+      salairy: "900 - 3000 DT",
+      location: "Tunis,Tunisia",
+      requirments: ["Angular5", "NodeJS", "Express", "PHP", "Red Node"]
+    }
+  ];
   constructor() {}
 
   ngOnInit() {

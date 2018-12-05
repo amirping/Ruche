@@ -69,15 +69,15 @@
             </div>
           </mat-expansion-panel>
           <mat-expansion-panel [hideToggle]="false">
-            <mat-expansion-panel-header
-              ><p>
+            <mat-expansion-panel-header>
+              <p>
                 <span
                   matBadge="{{skillesFilter.selectedOptions.selected.length}}"
                   matBadgeOverlap="false"
                   >Skill Filter</span
                 >
-              </p></mat-expansion-panel-header
-            >
+              </p>
+            </mat-expansion-panel-header>
             <mat-selection-list #skillesFilter>
               <mat-list-option *ngFor="let skill of skillsList">
                 {{ skill }}
@@ -85,27 +85,50 @@
             </mat-selection-list>
           </mat-expansion-panel>
           <mat-expansion-panel [hideToggle]="false">
-            <mat-expansion-panel-header
-              >Experience Filter</mat-expansion-panel-header
-            >
-            <mat-slider
-              class="example-margin"
-              [max]="20"
-              [min]="0"
-              [step]="1"
-              [thumbLabel]="true"
-              [(ngModel)]="search.exp"
-            >
-            </mat-slider>
+            <mat-expansion-panel-header>
+              Experience Filter
+            </mat-expansion-panel-header>
+            <div fxLayout="column">
+              <p>Offers with {{ search.exp }} Years</p>
+              <mat-slider
+                class="example-margin"
+                [max]="20"
+                [min]="0"
+                [step]="1"
+                [thumbLabel]="true"
+                [(ngModel)]="search.exp"
+                fxFlex
+              >
+              </mat-slider>
+            </div>
           </mat-expansion-panel>
         </mat-accordion>
       </div>
     </mat-sidenav>
-    <mat-sidenav-content fxFlex>
-      Main content
-      <p>
-        <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
-      </p>
+    <mat-sidenav-content fxFlex fxLayout="row" fxLayoutAlign="start center">
+      <div
+        fxLayout="column"
+        fxFlex
+        class="padi-main"
+        fxFlex-lt.md="100%"
+        fxFlex-gt.md="50%"
+        fxFlex-md="50%"
+      >
+        <button
+          *ngIf="!sidenav.opened"
+          mat-icon-button
+          (click)="sidenav.toggle()"
+        >
+          <mat-icon class="mat-18">menu</mat-icon>
+        </button>
+        <app-offer-item *ngFor="let item of offers" [offer]="item">
+        </app-offer-item>
+        <!--
+          <div class="example-item">
+            {{ item || "Loading..." }}
+          </div>
+        -->
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

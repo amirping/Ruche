@@ -9,6 +9,10 @@ $color1: $bg-color;
   background: $glitch-bg-color;
   position: relative;
 
+  .padi-main {
+    padding: 10px;
+  }
+
   .loader {
     position: absolute;
     top: 0;
@@ -42,9 +46,9 @@ $color1: $bg-color;
   }
 
   .example-container {
-    position: absolute;
+    // position: absolute;
     top: 0;
-    bottom: 0;
+    //bottom: 0;
     left: 0;
     right: 0;
   }
@@ -94,6 +98,19 @@ $color1: $bg-color;
         padding: 3px;
         background: transparent;
       }
+    }
+
+    .example-viewport {
+      height: 100%;
+      width: 100%;
+      padding: 5px;
+    }
+
+    app-offer-item {
+      flex-direction: column;
+      position: relative;
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
   }
 

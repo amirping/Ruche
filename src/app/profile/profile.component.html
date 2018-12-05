@@ -1,11 +1,15 @@
 <div class="main" fxLayout="column">
+  <div class="NAV-BTN">
+    <a mat-icon-button *ngIf="!showDeep" routerLink="/home">
+      <mat-icon>home</mat-icon>
+    </a>
+    <button mat-icon-button *ngIf="showDeep && gohide" (click)="showDeep=!showDeep ;goHide=!gohide">
+      <mat-icon>close</mat-icon>
+    </button>
+
+  </div>
   <div class="heading" fxLayout="row" fxLayoutAlign="space-between center">
-    <div
-      fxLayout="row"
-      fxLayout.lt-md="column"
-      fxLayoutAlign="start center"
-      fxLayoutGap="50px"
-    >
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center" fxLayoutGap="50px">
       <div class="avatar">
         <img src="https://api.adorable.io/avatars/285/amir@med.png" alt="" />
       </div>
@@ -24,11 +28,7 @@
   </mat-menu>
   <div fxLayout="row">
     <div class="profile-content" fxFlex="0 0 100" fxLayout="column">
-      <div
-        class="about-section animated"
-        [class.dis-non]="showDeep && gohide"
-        [class.fadeOut]="showDeep"
-      >
+      <div class="about-section animated" [class.dis-non]="showDeep && gohide" [class.fadeOut]="showDeep">
         <div class="cord" fxLayout="row" fxLayoutAlign="end start">
           <div fxFlex="240px" fxShow.lt-md="false"></div>
           <ul fxFlex>
@@ -62,32 +62,14 @@
           <button mat-stroked-button (click)="getDeep()">GET DEEP</button>
         </div>
       </div>
-      <div
-        class="conten-section animated delay-1s"
-        fxLayout.md="row"
-        fxLayout.gt-md="row"
-        fxLayout.lt-md="column"
-        [class.fadeIn]="showDeep"
-        fxLayoutGap="20px"
-        [class.dis-non]="!showDeep"
-      >
-        <div
-          class="skills"
-          fxLayout="column"
-          fxFlex.md="0 0 30%"
-          fxFlex.gt-md="0 0 30%"
-        >
+      <div class="conten-section animated delay-1s" fxLayout.md="row" fxLayout.gt-md="row" fxLayout.lt-md="column"
+        [class.fadeIn]="showDeep" fxLayoutGap="20px" [class.dis-non]="!showDeep">
+        <div class="skills" fxLayout="column" fxFlex.md="0 0 30%" fxFlex.gt-md="0 0 30%">
           <h4>Skills</h4>
           <ul>
-            <li
-              fxLayout="row"
-              fxLayoutAlign="space-between"
-              *ngFor="let item of user.skills"
-            >
+            <li fxLayout="row" fxLayoutAlign="space-between" *ngFor="let item of user.skills">
               <span>{{ item.name }}</span>
-              <div
-                class="c100 p{{item.value}} small {{ item.value<50 ? 'orange':'green'}}"
-              >
+              <div class="c100 p{{item.value}} small {{ item.value<50 ? 'orange':'green'}}">
                 <span>{{ item.value }}%</span>
                 <div class="slice">
                   <div class="bar"></div>
@@ -97,28 +79,16 @@
             </li>
           </ul>
         </div>
-        <div
-          class="expANDproj"
-          fxLayout="column"
-          fxFlex.md="0 0 70%"
-          fxFlex.gt-md="0 0 70%"
-        >
+        <div class="expANDproj" fxLayout="column" fxFlex.md="0 0 70%" fxFlex.gt-md="0 0 70%">
           <div class="expANDeduc" fxFlex>
             <h4>Experience & Education</h4>
             <mat-tab-group mat-align-tabs="center">
               <mat-tab class="pad-tab" label="Experience">
-                <mat-accordion
-                  displayMode="flat"
-                  [multi]="false"
-                  [hideToggle]="false"
-                >
-                  <mat-expansion-panel
-                    [hideToggle]="false"
-                    *ngFor="let item of user.experience"
-                  >
+                <mat-accordion displayMode="flat" [multi]="false" [hideToggle]="false">
+                  <mat-expansion-panel [hideToggle]="false" *ngFor="let item of user.experience">
                     <mat-expansion-panel-header>
                       {{ item.job | uppercase }} @{{
-                        item.company_name | uppercase
+                      item.company_name | uppercase
                       }}
                       <span class="dur-small">
                         <i class="material-icons"> calendar_today </i>
@@ -126,7 +96,7 @@
                         <i class="material-icons"> trending_flat </i>
                         <i class="d_u">{{
                           item.end_date ? (item.end_date | date) : "current"
-                        }}</i>
+                          }}</i>
                       </span>
                     </mat-expansion-panel-header>
                     -
@@ -155,15 +125,8 @@
           </div>
           <div class="projects" fxFlex>
             <h4>Projects</h4>
-            <mat-accordion
-              displayMode="flat"
-              [multi]="false"
-              [hideToggle]="false"
-            >
-              <mat-expansion-panel
-                [hideToggle]="false"
-                *ngFor="let item of user.projects"
-              >
+            <mat-accordion displayMode="flat" [multi]="false" [hideToggle]="false">
+              <mat-expansion-panel [hideToggle]="false" *ngFor="let item of user.projects">
                 <mat-expansion-panel-header>
                   {{ item.title }}
                 </mat-expansion-panel-header>
@@ -175,17 +138,10 @@
                   <!--
                     <img *ngFor="let img of item.images" src="{{img}}" alt="" />
                   -->
-                  <div
-                    ng2-carouselamos
-                    [width]="500"
-                    [items]="item.images"
-                    [$item]="itemTemplate"
-                    [$prev]="prevTemplate"
-                    [$next]="nextTemplate"
-                    (onSelectedItem)="
+                  <div ng2-carouselamos [width]="500" [items]="item.images" [$item]="itemTemplate" [$prev]="prevTemplate"
+                    [$next]="nextTemplate" (onSelectedItem)="
                       selectedItem = $event.item; selectedIndex = $event.index
-                    "
-                  ></div>
+                    "></div>
                 </div>
 
                 <ng-template #prevTemplate>

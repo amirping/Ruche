@@ -21,6 +21,16 @@ $color1: $bg-color;
     background-size: cover;
     padding: 20px;
     min-height: 100%;
+    position: relative;
+
+    .NAV-BTN {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: $bg-color;
+    }
 
     .heading {
       .n-start {

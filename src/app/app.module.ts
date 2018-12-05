@@ -12,6 +12,8 @@ import { SettingsComponent } from "./settings/settings.component";
 import { MatProviderModule } from "./mat-provider/mat-provider.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Ng2CarouselamosModule } from "ng2-carouselamos";
+import { OfferItemComponent } from "./offer-item/offer-item.component";
+import { OfferDetailsComponent } from "./offer-details/offer-details.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { Ng2CarouselamosModule } from "ng2-carouselamos";
     AuthUserComponent,
     HomeComponent,
     ProfileComponent,
-    SettingsComponent
+    SettingsComponent,
+    OfferItemComponent,
+    OfferDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,7 @@ import { Ng2CarouselamosModule } from "ng2-carouselamos";
     Ng2CarouselamosModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [OfferDetailsComponent]
 })
 export class AppModule {}

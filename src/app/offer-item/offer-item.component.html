@@ -1,0 +1,20 @@
+<div class="offer-wrap" fxLayout="row">
+  <img fxFlex="300px" [src]="offer.img" alt="" />
+  <div class="offer-data" fxLayout="column" fxLayoutAlign="space-between">
+    <div fxLayout="column" class="offer-header" (click)="openDialog()">
+      <h6>{{ offer.title }}</h6>
+      <span class="date">@{{ offer.company }}</span>
+      <span class="date">Dec 8 , 2018</span>
+    </div>
+    <p fxFlex="0 1">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit nesciunt
+      quaerat quam dolores velit repellat quidem distinctio. Optio minus placeat
+      beatae ex officia reprehenderit suscipit amet, soluta rem culpa numquam!
+    </p>
+    <div fxLayout="row" fxLayoutAlign="end center" fxFlex="0 0 40px">
+      <button mat-stroked-button color="accent" (click)="(null)">
+        POSTULE
+      </button>
+    </div>
+  </div>
+</div>
