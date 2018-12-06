@@ -1,5 +1,5 @@
 <div class="holding" id="holding" fxLayout.lt-md="column" fxLayout="row">
-  <div class="txtSide" fxLayout="column" fxLayoutAlign="space-around" fxFlex="60%">
+  <div class="txtSide" fxLayout="column" fxLayoutAlign="space-around" fxFlex="60%" fxLayoutGap="20px">
     <div>
       <h3>Ruche .</h3>
       <h5>{{ animatedText }}</h5>
@@ -12,13 +12,17 @@
     </p>
     <button class="register" [routerLink]="['/auth']">Join US</button>
   </div>
-  <div class="speedyinfoSide" fxLayout="column" fxLayoutAlign="center end" fxFlex>
+  <div class="speedyinfoSide" fxLayout="column" fxLayoutAlign="end space-arround" fxFlex>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
       suscipit eveniet obcaecati tempora, assumenda, velit expedita voluptatibus
       cupiditate voluptate voluptatem porro recusandae? Ipsa voluptatibus
-      tempora laudantium nihil voluptates aliquam. Rem!
+      tempora laudantium nihil voluptates aliquam. Rem! So <a [routerLink]="['/home']" mat-button color="warn">lead me
+        Home</a>
     </p>
+    <!-- <button class="homebtn" [routerLink]="['/auth']">
+      <mat-icon class="mat-18">keyboard_arrow_right</mat-icon>
+    </button> -->
   </div>
 </div>
 <div class="subholding" fxLayout="row" fxLayout.lt-md="column">

@@ -18,6 +18,41 @@ $color1: $bg-color;
     padding: 20px;
     min-height: 100%;
 
+    .speedyinfoSide {
+      p {
+        color: #f1f5f7;
+        font-size: 16px;
+        font-family: 'Raleway',
+          sans-serif;
+        padding-left: 15px;
+      }
+
+      .homebtn {
+        background: rgba($color: $bg-color, $alpha: 0.5);
+        border: 3px solid rgba(241, 245, 247, 0.4);
+        text-align: center;
+        padding: 15px;
+        text-transform: uppercase;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 0;
+        font-weight: 500;
+        letter-spacing: 2px;
+        color: #f1f5f7;
+        line-height: initial;
+        padding: 26px 39px;
+        -moz-transition: border-color 1s, color 1s, box-shadow 0.9s,
+          background-color 1s;
+        -o-transition: border-color 1s, color 1s, box-shadow 0.9s,
+          background-color 1s;
+        -webkit-transition: border-color 1s, color 1s, box-shadow 0.9s,
+          background-color 1s;
+        transition: border-color 1s, color 1s, box-shadow 0.9s,
+          background-color 1s;
+        width: 40px;
+      }
+    }
+
     .txtSide {
 
       color: #fff;

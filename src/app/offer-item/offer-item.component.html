@@ -1,5 +1,5 @@
 <div class="offer-wrap" fxLayout="row">
-  <img fxFlex="300px" [src]="offer.img" alt="" />
+  <img fxFlex="300px" [src]="offer.img" alt="" fxShow fxHide.lt-md />
   <div class="offer-data" fxLayout="column" fxLayoutAlign="space-between">
     <div fxLayout="column" class="offer-header" (click)="openDialog()">
       <h6>{{ offer.title }}</h6>

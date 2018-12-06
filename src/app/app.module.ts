@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Ng2CarouselamosModule } from "ng2-carouselamos";
 import { OfferItemComponent } from "./offer-item/offer-item.component";
 import { OfferDetailsComponent } from "./offer-details/offer-details.component";
+import { EditProfileComponent } from "./edit-profile/edit-profile.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { OfferDetailsComponent } from "./offer-details/offer-details.component";
     ProfileComponent,
     SettingsComponent,
     OfferItemComponent,
-    OfferDetailsComponent
+    OfferDetailsComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,6 @@ import { OfferDetailsComponent } from "./offer-details/offer-details.component";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [OfferDetailsComponent]
+  entryComponents: [OfferDetailsComponent, EditProfileComponent]
 })
 export class AppModule {}

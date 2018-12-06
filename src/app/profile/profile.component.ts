@@ -1,5 +1,7 @@
+import { MatDialog } from "@angular/material";
 import { Component, OnInit } from "@angular/core";
 import { ThrowStmt } from "@angular/compiler";
+import { EditProfileComponent } from "../edit-profile/edit-profile.component";
 
 @Component({
   selector: "app-profile",
@@ -120,7 +122,7 @@ export class ProfileComponent implements OnInit {
       }
     ]
   };
-  constructor() {}
+  constructor(private _matmodal: MatDialog) {}
 
   ngOnInit() {}
   getDeep() {
@@ -128,5 +130,14 @@ export class ProfileComponent implements OnInit {
     setTimeout(() => {
       this.gohide = !this.gohide;
     }, 1000);
+  }
+  openEdit() {
+    const dialogRef = this._matmodal.open(EditProfileComponent, {
+      width: "90%"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
+    });
   }
 }

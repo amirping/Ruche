@@ -26,4 +26,8 @@ export class UserService {
   createUser(user_data) {
     return this._http.post(this.api_url, user_data);
   }
+  createSession(user_data, token) {
+    localStorage.setItem("user_", JSON.stringify(user_data));
+    localStorage.setItem("user_token_", token);
+  }
 }
