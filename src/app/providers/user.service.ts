@@ -24,7 +24,7 @@ export class UserService {
     this._route.navigate(["/home"]);
   }
   createUser(user_data) {
-    return this._http.post(this.api_url, user_data);
+    return this._http.post(this.api_url + "/signup", user_data);
   }
   createSession(user_data, token) {
     localStorage.setItem("user_", JSON.stringify(user_data));

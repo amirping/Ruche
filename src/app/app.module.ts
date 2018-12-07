@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -15,6 +16,8 @@ import { Ng2CarouselamosModule } from "ng2-carouselamos";
 import { OfferItemComponent } from "./offer-item/offer-item.component";
 import { OfferDetailsComponent } from "./offer-details/offer-details.component";
 import { EditProfileComponent } from "./edit-profile/edit-profile.component";
+import { UserService } from "./providers/user.service";
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +38,10 @@ import { EditProfileComponent } from "./edit-profile/edit-profile.component";
     MatProviderModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2CarouselamosModule
+    Ng2CarouselamosModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
   entryComponents: [OfferDetailsComponent, EditProfileComponent]
 })
