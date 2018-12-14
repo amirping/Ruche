@@ -1,4 +1,6 @@
-import { MatDialog } from "@angular/material";
+import { Router, ActivatedRoute } from "@angular/router";
+import { UserService } from "./../providers/user.service";
+import { MatDialog, MatSnackBar } from "@angular/material";
 import { Component, OnInit } from "@angular/core";
 import { ThrowStmt } from "@angular/compiler";
 import { EditProfileComponent } from "../edit-profile/edit-profile.component";
@@ -9,19 +11,20 @@ import { EditProfileComponent } from "../edit-profile/edit-profile.component";
   styleUrls: ["./profile.component.scss"]
 })
 export class ProfileComponent implements OnInit {
+  isOwner: Boolean = false;
   showDeep = false;
   gohide = false;
   selectedIndex;
   user = {
-    name: "",
+    first_name: "",
     last_name: "",
     title: "",
-    b_date: "",
-    phone: "",
-    address: "",
+    birthday: "",
+    phone_number: "",
+    location: "",
     email: "",
     about: "",
-    looking: "",
+    looking_for: "",
     skills: [
       { name: "Angular 5", value: 90 },
       { name: "Electronjs", value: 90 },
@@ -122,7 +125,15 @@ export class ProfileComponent implements OnInit {
       }
     ]
   };
-  constructor(private _matmodal: MatDialog) {}
+  openId = "";
+  constructor(
+    private _matmodal: MatDialog,
+    private _userService: UserService,
+    private _snckBar: MatSnackBar,
+    private _router: ActivatedRoute
+  ) {
+    this.loadProfile();
+  }
 
   ngOnInit() {}
   getDeep() {
@@ -133,11 +144,31 @@ export class ProfileComponent implements OnInit {
   }
   openEdit() {
     const dialogRef = this._matmodal.open(EditProfileComponent, {
-      width: "90%"
+      width: "90%",
+      data: { user: this.user, id: this.openId }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
     });
   }
+  loadProfile() {
+    this._router.params.subscribe(para => {
+      const target_profile = para["id"];
+      this.openId = para["id"];
+      this._userService.getUser(target_profile).subscribe(
+        data => {
+          if (data["stat"]) {
+            console.log(data);
+            const user = data["user_found"];
+            this.user = user;
+          }
+        },
+        error => {
+          this._snckBar.open("we cannot load");
+        }
+      );
+    });
+  }
+  updateProfile() {}
 }

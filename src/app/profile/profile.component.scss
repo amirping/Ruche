@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Chakra+Petch");
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 $bg-color: #4242e6;
 $glitch-bg-color: $bg-color;
 $color1: $bg-color;
@@ -11,6 +11,39 @@ $color1: $bg-color;
 
   .dis-non {
     display: none !important;
+  }
+
+  .placeholding {
+    // background: rgba($color: #FF0000, $alpha: .2);
+    position: relative;
+    padding: 10px;
+    ul {
+      opacity: 0.7;
+    }
+    p {
+      font-family: "Raleway", sans-serif;
+      //opacity: 0.3;
+      -moz-box-shadow: inset 0 0 50px #ffffff;
+      -webkit-box-shadow: inset 0 0 50px #ffffff;
+      box-shadow: inset 0 0 5s0px #ffffff;
+      opacity: 0.3;
+    }
+
+    .over {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba($color: #000000, $alpha: 0.4);
+      text-align: center;
+      text-transform: capitalize;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
   }
 
   .main {
@@ -36,8 +69,7 @@ $color1: $bg-color;
       .n-start {
         h3 {
           font-weight: 400;
-          font-family: 'Raleway',
-            sans-serif;
+          font-family: "Raleway", sans-serif;
           font-size: 3em;
           margin-bottom: 3px;
           margin-top: 3px;
@@ -45,8 +77,7 @@ $color1: $bg-color;
 
         span {
           font-weight: 400;
-          font-family: 'Raleway',
-            sans-serif;
+          font-family: "Raleway", sans-serif;
           font-size: 1em;
         }
       }
@@ -72,16 +103,14 @@ $color1: $bg-color;
       .about-section {
         h4 {
           font-weight: 400;
-          font-family: 'Raleway',
-            sans-serif;
+          font-family: "Raleway", sans-serif;
           font-size: 2em;
           margin-bottom: 5px;
           margin-top: 5px;
         }
 
         p {
-          font-family: 'Raleway',
-            sans-serif;
+          font-family: "Raleway", sans-serif;
         }
 
         .cord {
@@ -105,16 +134,14 @@ $color1: $bg-color;
 
         h4 {
           font-weight: 400;
-          font-family: 'Raleway',
-            sans-serif;
+          font-family: "Raleway", sans-serif;
           font-size: 2em;
           margin-bottom: 5px;
           margin-top: 5px;
         }
 
         p {
-          font-family: 'Raleway',
-            sans-serif;
+          font-family: "Raleway", sans-serif;
         }
 
         .skills {
@@ -126,8 +153,7 @@ $color1: $bg-color;
 
             li {
               padding: 5px;
-              font-family: 'Raleway',
-                sans-serif;
+              font-family: "Raleway", sans-serif;
               font-size: 15px;
 
               span:first-child {
@@ -137,8 +163,8 @@ $color1: $bg-color;
             }
 
             li:hover {
-              border-left: 3px solid rgba($color: #000000, $alpha: .3);
-              background: rgba($color: #000000, $alpha: .2)
+              border-left: 3px solid rgba($color: #000000, $alpha: 0.3);
+              background: rgba($color: #000000, $alpha: 0.2);
             }
           }
         }
@@ -173,13 +199,13 @@ $color1: $bg-color;
             .entry {
               display: inline-block;
               vertical-align: top;
-              background: #13519C;
+              background: #13519c;
               color: #fff;
               padding: 10px;
               font-size: 12px;
               text-align: center;
               position: relative;
-              border-top: 4px solid #06182E;
+              border-top: 4px solid #06182e;
               border-radius: 3px;
               min-width: 200px;
               max-width: 400px !important;
@@ -210,7 +236,7 @@ $color1: $bg-color;
               }
 
               h2 {
-                letter-spacing: .2em;
+                letter-spacing: 0.2em;
                 margin-bottom: 10px;
                 font-size: 14px;
                 word-wrap: break-word;
@@ -225,13 +251,13 @@ $color1: $bg-color;
             }
 
             .entry:after {
-              content: '';
+              content: "";
               display: block;
               background: #eee;
               width: 7px;
               height: 7px;
               border-radius: 6px;
-              border: 3px solid #06182E;
+              border: 3px solid #06182e;
               position: absolute;
               left: 50%;
               top: -30px;
@@ -239,9 +265,9 @@ $color1: $bg-color;
             }
 
             .entry:before {
-              content: '';
+              content: "";
               display: block;
-              background: #06182E;
+              background: #06182e;
               width: 5px;
               height: 20px;
               position: absolute;
@@ -523,7 +549,7 @@ $color1: $bg-color;
     font-size: 40px;
   }
 
-  .c100>span {
+  .c100 > span {
     position: absolute;
     width: 100%;
     z-index: 1;
@@ -1385,7 +1411,7 @@ $color1: $bg-color;
     cursor: default;
   }
 
-  .c100:hover>span {
+  .c100:hover > span {
     width: 3.33em;
     line-height: 3.33em;
     font-size: 0.3em;
@@ -1408,7 +1434,7 @@ $color1: $bg-color;
     border-color: #c6ff00 !important;
   }
 
-  .c100.dark>span {
+  .c100.dark > span {
     color: #777777;
   }
 
@@ -1416,7 +1442,7 @@ $color1: $bg-color;
     background-color: #666666;
   }
 
-  .c100.dark:hover>span {
+  .c100.dark:hover > span {
     color: #c6ff00;
   }
 
@@ -1425,7 +1451,7 @@ $color1: $bg-color;
     border-color: #4db53c !important;
   }
 
-  .c100.green:hover>span {
+  .c100.green:hover > span {
     color: #4db53c;
   }
 
@@ -1434,7 +1460,7 @@ $color1: $bg-color;
     border-color: #5fd400 !important;
   }
 
-  .c100.green.dark:hover>span {
+  .c100.green.dark:hover > span {
     color: #5fd400;
   }
 
@@ -1443,7 +1469,7 @@ $color1: $bg-color;
     border-color: #dd9d22 !important;
   }
 
-  .c100.orange:hover>span {
+  .c100.orange:hover > span {
     color: #dd9d22;
   }
 
@@ -1452,8 +1478,7 @@ $color1: $bg-color;
     border-color: #e08833 !important;
   }
 
-  .c100.orange.dark:hover>span {
+  .c100.orange.dark:hover > span {
     color: #e08833;
   }
-
 }
