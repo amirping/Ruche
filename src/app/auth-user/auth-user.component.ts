@@ -105,6 +105,8 @@ export class AuthUserComponent implements OnInit {
     if (this.logindata.email.length > 3 && this.logindata.password.length > 4) {
       this._uService.connectUser(this.logindata).subscribe(
         data => {
+          console.log(data);
+
           if (data["stat"] === true) {
             this.snackBar.open(
               "Welcome Back , redirect within 3 secondes",

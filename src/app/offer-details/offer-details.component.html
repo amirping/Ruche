@@ -14,7 +14,7 @@
         <div class="tit">
           Date :
         </div>
-        <span>{{offer.date}}</span>
+        <span>{{offer.date | date}}</span>
       </div>
       <div class="row" fxLayout="row">
         <div class="tit">
@@ -26,30 +26,26 @@
         <div class="tit">
           Salairy :
         </div>
-        <i color="primary">{{offer.salairy}}</i>
+        <i color="primary" *ngIf="offer.salaire && offer.salaire.length >=1">{{offer.salaire[0]}} -
+          {{offer.salaire[1]}}</i>
+        <i color="primary" *ngIf="!offer.salaire || offer.salaire.length == 0">Not Set</i>
       </div>
     </div>
   </div>
   <div class="details" fxLayout="column">
     <h4>The Company</h4>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus est obcaecati molestias asperiores esse
-      facere ea distinctio iste, reprehenderit aspernatur delectus, nihil ut quae repudiandae, tempore beatae officiis
-      temporibus id.</p>
+    <p>
+      {{offer.about}}
+    </p>
   </div>
   <div class="required">
     <h4>What is About !</h4>
-    <p>{{offer.dscrp}}</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum hic quidem debitis illo dignissimos nobis
-      aliquam, iste sunt est veniam dolore nulla quibusdam voluptatibus, delectus rerum tempora voluptatum vitae?
-      Eveniet.</p>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque officiis hic officia praesentium optio ad
-      deleniti omnis placeat modi facilis exercitationem voluptas consequatur, temporibus dolor. Cupiditate praesentium
-      nulla voluptatem ab!</p>
+    <p>{{offer.description}}</p>
   </div>
   <div class="requirments">
     <h4>Requirments</h4>
     <mat-chip-list>
-      <mat-chip *ngFor="let chip of offer.requirments">
+      <mat-chip *ngFor="let chip of offer.requirements">
         {{chip}}
       </mat-chip>
     </mat-chip-list>
@@ -57,5 +53,9 @@
 </div>
 <div mat-dialog-actions fxLayoutAlign="end center" fxLayout="row">
   <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-stroked-button color="warn" [mat-dialog-close]="data.animal" cdkFocusInitial>Postule</button>
+  <button mat-stroked-button color="warn" [mat-dialog-close]="data.animal" *ngIf="isConnected" (click)="postule()"
+    cdkFocusInitial>Postule</button>
+  <button mat-stroked-button color="warn" [mat-dialog-close]="data.animal" *ngIf="!isConnected" routerLink="/auth"
+    cdkFocusInitial>Connect to postule</button>
+
 </div>

@@ -172,12 +172,12 @@
               </mat-form-field>
             </div>
             <mat-action-row>
-              <button mat-button (click)="deleteSkill(item._id)">Detele This</button>
+              <button mat-stroked-button (click)="deleteSkill(item._id)">Detele This</button>
             </mat-action-row>
           </mat-expansion-panel>
         </mat-accordion>
         <div fxLayout="row" fxLayoutAlign="end">
-          <button mat-button color="warn" type="submit">Save all changes</button>
+          <button mat-raised-button color="warn" type="submit">Save all changes</button>
         </div>
       </form>
     </mat-step>
@@ -208,49 +208,52 @@
       </form>
     </mat-step>
     <mat-step fxLayout="row" fxFlex>
-      <form fxLayout="column" #skillForm="ngForm">
+      <form fxLayout="column" #educationForm="ngForm" (ngSubmit)="save(educationForm,'education')">
         <ng-template matStepLabel>Education</ng-template>
         <div fxLayout="column">
           <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between">
             <mat-form-field>
-              <input matInput fxFlex placeholder="Degree title" name="e_title" required>
+              <input matInput fxFlex placeholder="Degree title" [(ngModel)]="degree" name="degree" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput fxFlex placeholder="Where" name="e_c_name" required>
+              <input matInput fxFlex placeholder="Where" [(ngModel)]="instut" name="instut" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput type="date" placeholder="Start From" name="p_date_s" required>
+              <input matInput type="date" placeholder="Start From" [(ngModel)]="start_date" name="start_date" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput type="date" placeholder="End at" name="p_date_e">
+              <input matInput type="date" placeholder="End at" [(ngModel)]="end_date" name="end_date">
               <mat-hint>
                 Leave empty if current
               </mat-hint>
             </mat-form-field>
           </div>
           <mat-form-field>
-            <mat-label>Tell as about this Education field</mat-label>
-            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2"
-              cdkAutosizeMaxRows="5"></textarea>
+            <mat-label>Tell us about this Education field</mat-label>
+            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" name="dscrp" [(ngModel)]="dscrp"
+              cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
           </mat-form-field>
           <div fxLayout="row" fxLayoutAlign="end">
-            <button mat-button (click)="null">
+            <button mat-button type="submit">
               Add education
               <mat-icon class="mat-18">save</mat-icon>
             </button>
           </div>
         </div>
-        <h5>List of education</h5>
-        <mat-accordion displayMode="flat" [multi]="false" [hideToggle]="false">
-          <mat-expansion-panel [hideToggle]="false">
-            <mat-expansion-panel-header>Panel header</mat-expansion-panel-header>
-            Panel body
-            <mat-action-row>
-              <button mat-button color="warn" (click)="deleteEdc()">Delete This education</button>
-            </mat-action-row>
-          </mat-expansion-panel>
-        </mat-accordion>
       </form>
+      <h5>List of education</h5>
+      <mat-accordion displayMode="flat" [multi]="false" [hideToggle]="false" *ngIf="user.education && user.education.length > 0">
+        <mat-expansion-panel [hideToggle]="false" *ngFor="let item of user.education">
+          <mat-expansion-panel-header>{{item.degree}} @ {{item.instut}}</mat-expansion-panel-header>
+          i get this degree at : {{item.start_date | date}} - {{(item.end_date | date) || 'currently study'}}
+          <br>
+          {{item.dscrp}}
+          <mat-action-row>
+            <button mat-raised-button color="warn" (click)="deleteEdc(item._id)">Delete This education</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+
       <div fxLayout="row" fxLayoutAlign="end">
         <button mat-button type="submit" color="warn">Save</button>
       </div>

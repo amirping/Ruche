@@ -1,3 +1,4 @@
+import { CandiListComponent } from "./../candi-list/candi-list.component";
 import { Router, ActivatedRoute } from "@angular/router";
 import { UserService } from "./../providers/user.service";
 import { MatDialog, MatSnackBar } from "@angular/material";
@@ -135,7 +136,16 @@ export class ProfileComponent implements OnInit {
     this.loadProfile();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const v1 = localStorage.getItem("user_local__id");
+    const v2 = localStorage.getItem("user_local_token");
+    const v3 = localStorage.getItem("user_local_token_time");
+    if (v1 && v2 && v3 && this.openId === v1) {
+      this.user["token"] = v2;
+      this.user["_id"] = v1;
+      this.isOwner = true;
+    }
+  }
   getDeep() {
     this.showDeep = true;
     setTimeout(() => {
@@ -146,6 +156,16 @@ export class ProfileComponent implements OnInit {
     const dialogRef = this._matmodal.open(EditProfileComponent, {
       width: "90%",
       data: { user: this.user, id: this.openId }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
+    });
+  }
+  openCandi() {
+    const dialogRef = this._matmodal.open(CandiListComponent, {
+      width: "90%",
+      data: { id: this.openId }
     });
 
     dialogRef.afterClosed().subscribe(result => {

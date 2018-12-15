@@ -37,7 +37,8 @@ export class EditProfileComponent implements OnInit {
     email: "",
     skills: [],
     title: "",
-    looking_for: ""
+    looking_for: "",
+    education: []
   };
   visible = true;
   selectable = true;
@@ -170,6 +171,31 @@ export class EditProfileComponent implements OnInit {
             );
           }
         );
+      } else if (type === "education") {
+        if (this.user.education) {
+          this.user.education.push(form.value);
+        } else {
+          this.user.education = [];
+          this.user.education.push(form.value);
+        }
+        this._userService.updateUser(this.user, this.currentUser_id).subscribe(
+          data => {
+            if (data["message"] && data["message"] === "update_success") {
+              this._snckBacr.open("Education have been updated :) ", "Close");
+            } else {
+              this._snckBacr.open(
+                "It look like we cant do it now , try later",
+                "okay"
+              );
+            }
+          },
+          err => {
+            this._snckBacr.open(
+              "the internet off , or the server down ",
+              "Evil me"
+            );
+          }
+        );
       }
     }
   }
@@ -199,7 +225,32 @@ export class EditProfileComponent implements OnInit {
       }
     }
   }
-  deleteEdc() {}
+  deleteEdc(_id) {
+    for (let index = 0; index < this.user.education.length; index++) {
+      const element = this.user.education[index];
+      if (element._id === _id) {
+        this.user.education.splice(index, 1);
+        this._userService.updateUser(this.user, this.currentUser_id).subscribe(
+          data => {
+            if (data["message"] && data["message"] === "update_success") {
+              this._snckBacr.open("Education have been Deleted :) ", "Close");
+            } else {
+              this._snckBacr.open(
+                "It look like we cant do it now , try later",
+                "okay"
+              );
+            }
+          },
+          err => {
+            this._snckBacr.open(
+              "the internet off , or the server down ",
+              "Evil me"
+            );
+          }
+        );
+      }
+    }
+  }
   deletePrj(_id) {
     for (let index = 0; index < this.user.projects.length; index++) {
       const element = this.user.projects[index];

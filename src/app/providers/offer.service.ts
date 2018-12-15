@@ -4,13 +4,16 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
   providedIn: "root"
 })
 export class OfferService {
-  private api_url = "localhost:3000/offer";
+  private api_url = "http://localhost:3001/offer";
   constructor(private _http: HttpClient) {}
-  getOffer(user_id) {
+  getOffers() {
+    return this._http.get(this.api_url);
+  }
+  getOffer(offer_id) {
     const header = new HttpHeaders({
-      id: user_id
+      id: offer_id
     });
-    return this._http.get(this.api_url, { headers: header });
+    return this._http.get(this.api_url + "/" + offer_id, { headers: header });
   }
   postulOffer(user, offer) {
     return this._http.post(this.api_url, { user: user, offer: offer });

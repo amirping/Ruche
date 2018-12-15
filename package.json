@@ -22,7 +22,7 @@
     "@angular/material": "^7.1.0",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
-    "@angular/pwa": "^0.10.6",
+    "@angular/pwa": "^0.10.7",
     "@angular/router": "^6.1.0",
     "animate.css": "^3.7.0",
     "aos": "^2.3.4",

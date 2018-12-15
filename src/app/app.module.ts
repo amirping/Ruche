@@ -18,6 +18,7 @@ import { OfferDetailsComponent } from "./offer-details/offer-details.component";
 import { EditProfileComponent } from "./edit-profile/edit-profile.component";
 import { UserService } from "./providers/user.service";
 import { HttpClientModule } from "@angular/common/http";
+import { CandiListComponent } from "./candi-list/candi-list.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { HttpClientModule } from "@angular/common/http";
     SettingsComponent,
     OfferItemComponent,
     OfferDetailsComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    CandiListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,10 @@ import { HttpClientModule } from "@angular/common/http";
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
-  entryComponents: [OfferDetailsComponent, EditProfileComponent]
+  entryComponents: [
+    OfferDetailsComponent,
+    EditProfileComponent,
+    CandiListComponent
+  ]
 })
 export class AppModule {}

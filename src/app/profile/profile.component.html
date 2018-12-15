@@ -18,11 +18,12 @@
         <span>{{user.title || 'give yourself a title'}}</span>
       </div>
     </div>
-    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="isOwner">
       <mat-icon aria-label="seetings">settings</mat-icon>
     </button>
   </div>
   <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openCandi()">List of candidancy</button>
     <button mat-menu-item (click)="openEdit()">Edit</button>
     <button mat-menu-item (click)="null">Disconnect</button>
   </mat-menu>
